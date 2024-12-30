@@ -1,0 +1,96 @@
+---
+import Titulo from "../components/Titulo.astro";
+---
+
+<section
+  class="p-16 pt-20 flex flex-col justify-start items-center relative"
+  id="About"
+>
+  <Titulo
+    title="About Us"
+    subtitle="Revitalize your vehicle with our premier car wash and detailing service!"
+  />
+  <div class="container mx-auto p-6 max-w-7xl relative pb-96">
+    <div class="flex flex-wrap justify-center gap-4 absolute" id="imgContainer">
+      <div class="w-2/5 h-80 rounded-lg overflow-hidden hover:scale-110 transition duration-300 ease-in-out">
+        <img
+          src="src/assets/img1.jpg"
+          alt="car detail"
+          class="w-full h-full object-cover transition-transform duration-300 ease-in-out transform"
+          id="img1"
+        />
+      </div>
+      <div class="flex flex-wrap justify-center gap-4">
+        <div class="w-4/6 h-36 relative rounded-lg overflow-hidden hover:scale-110 transition duration-300 ease-in-out">
+          <img
+            src="src/assets/img2.jpg"
+            alt="car detail"
+            class="w-full h-full object-cover transition-transform duration-300 ease-in-out transform "
+            id="img2"
+          />
+        </div>
+        <div class="w-4/6 h-36 relative rounded-lg overflow-hidden hover:scale-110 transition duration-300 ease-in-out">
+          <img
+            src="src/assets/img3.jpg"
+            alt="car detail"
+            class="w-full h-full object-cover transition-transform duration-300 ease-in-out transform "
+            id="img3"
+          />
+        </div>
+      </div>
+      <div class="flex justify-center flex-grow">
+        <p
+          class="text-sm text-white mt-0 text-justify pt-8 opacity-100 transition-opacity duration-500 ease-in-out"
+          id="paragraph"
+        >
+          MOBRA as it is today, is an ambitious dream inspired by cars, passion,
+          and determination. Throughout its creation, two major states were in
+          mind for the rise of the company: New York and Florida. January ’24
+          was the pillar of creation for MOBRA, specifically in Miami. From that
+          point in time, the company has risen from its beginnings and will
+          continue to thrive through its ambition. MOBRA’s goal is to become the
+          best car detailing company in the US, eventually in the world.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script lang="ts">
+  const imgContainer = document.querySelector("#imgContainer");
+  const images = imgContainer.querySelectorAll("img");
+  const paragraph = document.querySelector("#paragraph");
+
+  // Cambiar el texto del párrafo al hacer hover sobre las imágenes
+  images.forEach((img, index) => {
+    img.addEventListener("mouseover", () => {
+      paragraph.style.opacity = "0"; // Oculta el texto suavemente
+      setTimeout(() => {
+        switch (index) {
+          case 0:
+            paragraph.textContent =
+              "Dr. Ing. h.c. F. Porsche Aktiengesellschaft, normalmente abreviado como Porsche AG​ es un fabricante de automóviles alemán especializado en automóviles deportivos de lujo de alta gama.";
+            break;
+          case 1:
+            paragraph.textContent =
+              "Ford Motor Company es una empresa multinacional fabricante de automóviles de origen estadounidense. Con su sede en Dearborn, Míchigan, es una de las mayores empresas automovilísticas del mundo.";
+            break;
+          case 2:
+            paragraph.textContent =
+              "Toyota Motor Corporation es una empresa multinacional japonesa dedicada a la fabricación de automóviles. Es la mayor empresa automovilística del mundo por volumen de producción y ventas.";
+            break;
+        }
+        paragraph.style.opacity = "1"; // Muestra el nuevo texto suavemente
+      }, 500); // Espera a que la opacidad sea 0 antes de cambiar el texto
+    });
+
+    img.addEventListener("mouseout", () => {
+      paragraph.style.opacity = "0"; // Oculta el texto suavemente
+      setTimeout(() => {
+        paragraph.textContent =
+          "MOBRA as it is today, is an ambitious dream inspired by cars, passion, and determination. Throughout its creation, two major states were in mind for the rise of the company: New York and Florida. January ’24 was the pillar of creation for MOBRA, specifically in Miami. From that point in time, the company has risen from its beginnings and will continue to thrive through its ambition. MOBRA’s goal is to become the best car detailing company in the US, eventually in the world.";
+        paragraph.style.opacity = "1"; // Muestra el texto por defecto suavemente
+      }, 500); // Espera a que la opacidad sea 0 antes de cambiar el texto
+    });
+  });
+</script>

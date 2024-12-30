@@ -1,0 +1,71 @@
+---
+import Btn from "../components/Btn.astro";
+import Nav from "../components/Nav.astro";
+---
+
+<Nav />
+<header
+  class="px-20 h-screen flex flex-col justify-end items-start relative pb-14"
+>
+  <video
+    class="absolute top-0 left-0 w-full h-full object-cover"
+    autoplay
+    loop
+    muted
+    style="filter: brightness(0.5) contrast(1.2) saturate(0.8);"
+  >
+    <source src="src/assets/vid1.mp4" type="video/mp4" />
+  </video>
+  <div class="z-10"></div>
+  <div class="flex flex-col w-1/2 z-10 mt-auto gap-6">
+    <h1 class="text-4xl uppercase">Car Detailing</h1>
+    <p class="mb-4 text-base">
+      A thorough cleaning, restoration, and finishing process aimed at enhancing
+      and protecting a vehicle's appearance, both inside and out. Unlike regular
+      car washing, detailing involves meticulous attention to detail, including
+      exterior polishing to remove scratches, waxing to protect paint, and deep
+      cleaning of wheels, windows, and trims. Interior detailing focuses on
+      cleaning and conditioning surfaces such as seats, carpets, and dashboards.
+      Our goal is to restore your car to its best possible condition and
+      maintain its value over time.
+    </p>
+    <div class="flex justify-center gap-16 group">
+      <a
+        href="#Services"
+        class="h-12 bg-yellow-400 text-[#131614] border-2 border-solid border-yellow-400 transition duration-300 ease-in-out py-1 px-8 hover:scale-105 flex items-center justify-center w-full rounded-lg group-hover:bg-[#131614] group-hover:text-white hover:!bg-yellow-500 hover:!text-[#131614]"
+      >
+        <p class="font-bold mr-2 gap-4">Services</p>
+        <svg
+          class="w-4 h-4"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+        </svg>
+      </a>
+      <a
+        href="#Contact"
+        class="h-12 bg-[#131614] border-2 border-solid border-yellow-400 hover:bg-yellow-500 hover:border-yellow-400 hover:text-[#131614] transition duration-300 ease-in-out py-1 px-8 hover:scale-105 flex items-center justify-center w-full rounded-lg"
+      >
+        <p class="font-bold mr-2 gap-4">Contact Us</p>
+        <svg
+          class="w-4 h-4"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+        </svg>
+      </a>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,50 @@
+---
+---
+<nav class="p-4 fixed top-0 left-0 w-full z-10 transition duration-300 bg-gradient-to-b from-[#030303] to-[#13161444]">
+    <div class="flex justify-between w-full transition duration-500">
+      <h1 class="text-3xl font-semibold transition duration-500">
+        <a href="#" class="text-inherit">MOBRA</a>
+      </h1>
+      <!-- gap de aqui para separacion -->
+      <div class="font-bold flex justify-around gap-16 items-center transition duration-500 opacity-100"> 
+        <a href="#About">About</a>
+        <a href="#Services">Services</a>
+        <a href="#Testymonial">Testymonials</a>
+        <a href="#Contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+  
+  <script lang="ts">
+    const nav = document.querySelector('nav');
+    const h1 = document.querySelector('h1');
+    const linksContainer = document.querySelector('.font-bold.flex');
+  
+    let initialTop = h1.offsetTop;
+    let centerX = window.innerWidth / 2;
+  
+    window.addEventListener('scroll', () => {
+      const scrollPosition = window.scrollY;
+      const navHeight = nav.offsetHeight;
+  
+      if (scrollPosition > navHeight) {
+        // Animate h1 to center
+        h1.style.transform = `translateX(${centerX - h1.offsetWidth / 2}px)`;
+        h1.style.transition = 'transform 0.5s ease-in-out';
+  
+        // Hide links container
+        linksContainer.style.opacity = '0';
+  
+        // Keep h1 and its child a element visible
+        h1.style.opacity = '1';
+        h1.querySelector('a').style.opacity = '1';
+      } else {
+        // Animate h1 back to original position
+        h1.style.transform = `translateX(0px)`;
+        h1.style.transition = 'transform 0.5s ease-in-out';
+  
+        // Show links container
+        linksContainer.style.opacity = '1';
+      }
+    });
+  </script>
