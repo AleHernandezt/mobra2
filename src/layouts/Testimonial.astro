@@ -1,9 +1,10 @@
 ---
 import Titulo from "../components/Titulo.astro";
+import Test from "../components/Test.astro";
 ---
 
 <section
-  class="p-16 pt-20 flex flex-col justify-start items-center relative mb-16 h-screen"
+  class="pt-20 flex flex-col justify-start items-center relative mb-16 h-screen"
   id="Testymonial"
 >
   <Titulo
@@ -11,100 +12,85 @@ import Titulo from "../components/Titulo.astro";
     subtitle="Our clients' experiences drive our excellence."
   />
 
-  <div class="flex justify-center relative my-auto">
-    <div id="testimonial-wrapper" class="overflow-hidden w-full max-w-3xl">
-      <div id="testimonial-container" class="flex">
+
+
+
+  <div class="w-11/12 flex flex-col justify-center relative my-auto overflow-hidden ">
+    <div class="flex w-full max-w-3xl animate-loop-scroll mb-4 ">
+      <div class="flex">
+        <Test
+          title="Anzel Teguris:"
+          content="I’ve tried several detailing services, but MOBRA is on another level. My car looks like it just rolled out of the factory."
+        />
+        <Test
+          title="Bovaro Cresten:"
+          content="I recently took my car to MOBRA for interior detailing, and I’m absolutely blown away."
+        />
+        <Test
+          title="Mireya Anda:"
+          content="Fast, professional, and flawless! MOBRA is now my go-to for all car detailing needs."
+        />
+        <Test
+          title="Damian Tura:"
+          content="MOBRA exceeded all my expectations. I have two kids and a dog, so you can imagine the state of my car before the service—crumbs, pet hair, stains, the works."
+        />
+      </div>
+      <div class="flex">
+        <Test
+          title="Anzel Teguris:"
+          content="I’ve tried several detailing services, but MOBRA is on another level. My car looks like it just rolled out of the factory."
+        />
+        <Test
+          title="Bovaro Cresten:"
+          content="I recently took my car to MOBRA for interior detailing, and I’m absolutely blown away."
+        />
+        <Test
+          title="Mireya Anda:"
+          content="Fast, professional, and flawless! MOBRA is now my go-to for all car detailing needs."
+        />
+        <Test
+          title="Damian Tura:"
+          content="MOBRA exceeded all my expectations."
+        />
+      </div>
+    </div>
+
+    <div class="flex w-full max-w-3xl animate-loop-scroll-reverse mb-4">      <div class="flex">
+        <Test
+          title="Anzel Teguris:"
+          content="I’ve tried several detailing services, but MOBRA is on another level. My car looks like it just rolled out of the factory."
+        />
+        <Test
+          title="Bovaro Cresten:"
+          content="I recently took my car to MOBRA for interior detailing, and I’m absolutely blown away."
+        />
+        <Test
+          title="Mireya Anda:"
+          content="Fast, professional, and flawless! MOBRA is now my go-to for all car detailing needs."
+        />
+        <Test
+          title="Damian Tura:"
+          content="MOBRA exceeded all my expectations. I have two kids and a dog, so you can imagine the state of my car before the service—crumbs, pet hair, stains, the works."
+        />
+      </div>
+      <div class="flex">
+        <Test
+          title="Anzel Teguris:"
+          content="I’ve tried several detailing services, but MOBRA is on another level. My car looks like it just rolled out of the factory."
+        />
+        <Test
+          title="Bovaro Cresten:"
+          content="I recently took my car to MOBRA for interior detailing, and I’m absolutely blown away."
+        />
+        <Test
+          title="Mireya Anda:"
+          content="Fast, professional, and flawless! MOBRA is now my go-to for all car detailing needs."
+        />
+        <Test
+          title="Damian Tura:"
+          content="MOBRA exceeded all my expectations."
+        />
       </div>
     </div>
   </div>
-
-  <div class="flex justify-center w-full max-w-3xl mt-4">
-    <button
-      id="prev"
-      class="bg-transparent text-yellow-500 text-2xl hover:text-yellow-600 mx-2"
-      >&lt;</button
-    >
-    <button
-      id="next"
-      class="bg-transparent text-yellow-500 text-2xl hover:text-yellow-600 mx-2"
-      >&gt;</button
-    >
-  </div>
-
-  <style>
-    #testimonial-wrapper {
-      overflow: hidden;
-      border: 2px solid #fbbf24;
-      border-radius: 8px;
-      padding: 1rem;
-    }
-    #testimonial-container {
-      display: flex;
-    }
-
-    .testimonial {
-      min-width: 100%;
-      padding: 16px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      background-color: white;
-      border-radius: 8px;
-      word-wrap: break-word;
-    }
-
-    .testimonial p {
-      margin: 1rem 0;
-    }
-  </style>
-  <script lang="ts">
-    const testimonialContainer = document.getElementById("testimonial-container");
-
-    const testimonials = [
-      {
-        autor: "Anzel Teguris:",
-        testimonio:
-          "I’ve tried several detailing services, but MOBRA is on another level. My car looks like it just rolled out of the factory.",
-      },
-      {
-        autor: "Bovaro Cresten:",
-        testimonio:
-          "I recently took my car to MOBRA for interior detailing, and I’m absolutely blown away. They cleaned every corner, from the air vents to the tiniest crevices in the cup holders. The team even restored my leather seats, making them feel soft and look vibrant again. Plus, the car now smells fresh and inviting. It’s clear they take pride in their work, and it shows in the results. I highly recommend MOBRA to anyone looking for top-notch detailing!",
-      },
-      {
-        autor: "Mireya Anda:",
-        testimonio:
-          "Fast, professional, and flawless! MOBRA is now my go-to for all car detailing needs.",
-      },
-      {
-        autor: "Damian Tura:",
-        testimonio:
-          "MOBRA exceeded all my expectations. I have two kids and a dog, so you can imagine the state of my car before the service—crumbs, pet hair, stains, the works. After MOBRA worked their magic, it looked like none of that ever happened! The staff was friendly and professional, and they even offered me tips to keep my car clean longer. I’ll definitely be back for regular upkeep!",
-      },
-    ];
-
-    let currentIndex = 0;
-
-    renderTestimonial();
-
-    function renderTestimonial() {
-      const testimonial = testimonials[currentIndex];
-      testimonialContainer.innerHTML = `
-              <div class="testimonial">
-                <p class="text-lg font-bold">${testimonial.autor}</p>
-                <p class="text-gray-600">${testimonial.testimonio}</p>
-              </div>
-            `;
-    }
-
-    document.getElementById("prev").addEventListener("click", () => {
-      currentIndex =
-        currentIndex > 0 ? currentIndex - 1 : testimonials.length - 1;
-      renderTestimonial();
-    });
-
-    document.getElementById("next").addEventListener("click", () => {
-      currentIndex =
-        currentIndex < testimonials.length - 1 ? currentIndex + 1 : 0;
-      renderTestimonial();
-    });
-  </script>
 </section>
