@@ -61,10 +61,10 @@ const { title } = Astro.props;
     }
   }
 
-	.hidden {
-  @apply opacity-0;
-  transition: opacity 0.5s forwards;
-}
+  .hidden {
+    @apply opacity-0;
+    transition: opacity 0.5s forwards;
+  }
 
   @keyframes fadeOut {
     from {
@@ -75,4 +75,13 @@ const { title } = Astro.props;
     }
   }
 
+  @tailwind base;
+  @tailwind components;
+  @tailwind utilities;
+
+  @layer utilities {
+    .pause {
+      animation-play-state: paused;
+    }
+  }
 </style>

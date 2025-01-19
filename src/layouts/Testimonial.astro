@@ -12,23 +12,24 @@ import Test from "../components/Test.astro";
     subtitle="Our clients' experiences drive our excellence."
   />
 
+  <style>
+    .masked-scroll {
+      mask-image: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0),
+        rgba(0, 0, 0, 1) 20%,
+        rgba(0, 0, 0, 1) 80%,
+        rgba(0, 0, 0, 0)
+      );
+    }
+  </style>
 
-<style>
-  .masked-scroll {
-    mask-image: linear-gradient(
-      to right,
-      rgba(0, 0, 0, 0),
-      rgba(0, 0, 0, 1) 20%,
-      rgba(0, 0, 0, 1) 80%,
-      rgba(0, 0, 0, 0)
-    );
-  }
-</style>
-
-
-  <div class="w-full flex flex-col justify-center relative my-auto overflow-hidden masked-scroll">
-    
-    <div class="flex w-full max-w-3xl animate-loop-scroll mb-4 ">
+  <div
+    class="w-full flex flex-col justify-center relative my-auto overflow-hidden masked-scroll group"
+  >
+    <div
+      class="flex w-full max-w-3xl animate-loop-scroll group-hover:pause mb-4"
+    >
       <div class="flex">
         <Test
           title="Anzel Teguris:"
@@ -67,7 +68,10 @@ import Test from "../components/Test.astro";
       </div>
     </div>
 
-    <div class="flex w-full max-w-3xl animate-loop-scroll-reverse mb-4">      <div class="flex">
+    <div
+      class="flex w-full max-w-3xl animate-loop-scroll-reverse group-hover:pause mb-4"
+    >
+      <div class="flex">
         <Test
           title="Anzel Teguris:"
           content="I’ve tried several detailing services, but MOBRA is on another level. My car looks like it just rolled out of the factory."
