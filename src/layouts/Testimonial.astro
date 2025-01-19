@@ -13,9 +13,21 @@ import Test from "../components/Test.astro";
   />
 
 
+<style>
+  .masked-scroll {
+    mask-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0),
+      rgba(0, 0, 0, 1) 20%,
+      rgba(0, 0, 0, 1) 80%,
+      rgba(0, 0, 0, 0)
+    );
+  }
+</style>
 
 
-  <div class="w-11/12 flex flex-col justify-center relative my-auto overflow-hidden ">
+  <div class="w-full flex flex-col justify-center relative my-auto overflow-hidden masked-scroll">
+    
     <div class="flex w-full max-w-3xl animate-loop-scroll mb-4 ">
       <div class="flex">
         <Test
