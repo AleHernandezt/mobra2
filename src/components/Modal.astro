@@ -1,0 +1,25 @@
+---
+// src/components/Modal.astro
+const { isOpen } = Astro.props;
+---
+
+{isOpen ? (
+  <div class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+    <div class="bg-white p-8 rounded-lg shadow-lg relative">
+      <button class="absolute top-2 right-2 text-black" onclick="closeModal()">
+        ✖
+      </button>
+      <h2 class="text-2xl font-bold mb-4">Disclaimer</h2>
+      <p>This is the disclaimer content.</p>
+    </div>
+  </div>
+) : null}
+
+<script>
+  function closeModal() {
+    const modalContainer = document.querySelector('#modalContainer');
+    if (modalContainer) {
+      modalContainer.innerHTML = '';
+    }
+  }
+</script>

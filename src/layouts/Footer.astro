@@ -1,64 +1,74 @@
+---
+---
+
 <footer class="p-16 flex flex-col justify-end items-center absolute mb-0 left-0 w-full">
-    <div class="w-full border-t-2 border-white"></div>
-    <div class="flex flex-row justify-evenly items-center w-full my-4">
-      <h2 class="text-5xl font-extrabold text-white flex items-center flex-col"> <!-- Flex y items-center para centrar verticalmente -->
-        <a href="#" class="text-5xl font-extrabold text-white">MOBRA</a>
-        <p class="text-lg text-white uppercase">ny | fl</p>
-  
-      </h2>
-      <div class="flex flex-col items-center justify-center mb-0">
-        <a class="text-lg text-white" href="mailto:mobradetails@gmail.com">mobradetails@gmail.com</a>
-        
-        <div class="flex flex-row mt-2">
-          <a href="https://www.instagram.com/mobradetailz?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="text-lg text-white" target="_blank" rel="noopener noreferrer">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              x="0px"
-              y="0px"
-              width="25"
-              height="25"
-              viewBox="0,0,256,256"
-            >
-              <g
-                fill="#ffffff"
-                fill-rule="nonzero"
-                stroke="none"
-                stroke-width="1"
-                stroke-linecap="butt"
-                stroke-linejoin="miter"
-                stroke-miterlimit="10"
-                stroke-dasharray=""
-                stroke-dashoffset="0"
-                font-family="none"
-                font-weight="none"
-                font-size="none"
-                text-anchor="none"
-                style="mix-blend-mode: normal"
-              >
-                <g transform="scale(10.66667,10.66667)">
-                  <path
-                    d="M8,3c-2.757,0 -5,2.243 -5,5v8c0,2.757 2.243,5 5,5h8c2.757,0 5,-2.243 5,-5v-8c0,-2.757 -2.243,-5 -5,-5zM8,5h8c1.654,0 3,1.346 3,3v8c0,1.654 -1.346,3 -3,3h-8c-1.654,0 -3,-1.346 -3,-3v-8c0,-1.654 1.346,-3 3,-3zM17,6c-0.55228,0 -1,0.44772 -1,1c0,0.55228 0.44772,1 1,1c0.55228,0 1,-0.44772 1,-1c0,-0.55228 -0.44772,-1 -1,-1zM12,7c-2.757,0 -5,2.243 -5,5c0,2.757 2.243,5 5,5c2.757,0 5,-2.243 5,-5c0,-2.757 -2.243,-5 -5,-5zM12,9c1.654,0 3,1.346 3,3c0,1.654 -1.346,3 -3,3c-1.654,0 -3,-1.346 -3,-3c0,-1.654 1.346,-3 3,-3z"
-                  ></path>
-                </g>
-              </g>
-            </svg>
-          </a>
-        </div>
-        <p>Juniper Valley Park</p>
-        <!-- <p>11401 NW 12th St, Miami, FL 33172</p> -->
-        <!-- <p>338-350 5th Ave, Manhattan, New York 10118</p> -->
+  <div class="w-full border-t-2 border-white"></div>
+  <div class="flex flex-row justify-evenly items-center w-full my-4">
+    <h2 class="text-5xl font-extrabold text-white flex items-center flex-col"> 
+      <a href="#" class="text-5xl font-extrabold text-white">MOBRA</a>
+      <p class="text-lg text-white uppercase">ny | fl</p>
+    </h2>
+    <div class="flex flex-col items-center justify-center mb-0">
+      <a class="text-lg text-white" href="mailto:mobradetails@gmail.com">mobradetails@gmail.com</a>
+      <div class="flex flex-row mt-2">
+        <a href="https://www.instagram.com/mobradetailz?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="text-lg text-white" target="_blank" rel="noopener noreferrer">
+          <!-- Svg -->
+        </a>
       </div>
+      <p>Juniper Valley Park</p>
     </div>
-    <div class="w-full border-t-2 border-white"></div>
-    <div class="flex flex-row justify-between w-full mt-4">
-      <div class="flex flex-row mx-8 gap-4">
-        <a href="#" class="text-xl text-white mx-2 font-normal">Contact Us</a>
-        <a href="#" class="text-xl text-white mx-2 font-normal">Privacy Policy</a>
-        <a href="#" class="text-xl text-white mx-2 font-normal">Disclaimer</a>
-      </div>
-      <div class="flex flex-col">
-        <p class="text-white text-right capitalize text-xl font-normal">Copyright &copy; 2024</p>
-        <p class="text-white text-right uppercase text-xl font-normal">MOBRA LLC.</p>
-      </div>
+  </div>
+  <div class="w-full border-t-2 border-white"></div>
+  <div class="flex flex-row justify-between w-full mt-4">
+    <div class="flex flex-row mx-8 gap-4">
+      <a href="#" class="text-xl text-white mx-2 font-normal" id="contactUsLink">Contact Us</a>
+      <a href="#" class="text-xl text-white mx-2 font-normal">Privacy Policy</a>
+      <a href="#" class="text-xl text-white mx-2 font-normal" id="disclaimerLink">Disclaimer</a>
     </div>
-  </footer>
+    <div class="flex flex-col">
+      <p class="text-white text-right capitalize text-xl font-normal">Copyright &copy; 2024</p>
+      <p class="text-white text-right uppercase text-xl font-normal">MOBRA LLC.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Contenedor del Modal -->
+<div id="modalContainer"></div>
+
+<!-- Script para manejar el Modal -->
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const disclaimerLink = document.getElementById("disclaimerLink");
+
+    if (disclaimerLink) {
+      disclaimerLink.addEventListener("click", function(event) {
+        event.preventDefault();
+        openModal();
+      });
+    }
+
+    function openModal() {
+      const modalContainer = document.querySelector('#modalContainer');
+      if (modalContainer) {
+        modalContainer.innerHTML = `
+          <div class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50" onclick="closeModal(event)">
+            <div class="bg-[#131614] text-white p-8 rounded-lg shadow-lg relative" onclick="event.stopPropagation()">
+              <button class="absolute top-2 right-2 text-yellow-500" onclick="closeModal(event)">✖</button>
+              <h2 class="text-2xl font-bold mb-4">Disclaimer</h2>
+              <p>This is the disclaimer content.</p>
+            </div>
+          </div>
+        `;
+      }
+    }
+
+    function closeModal(event: { target: { tagName: string; }; currentTarget: any; }) {
+      if (event.target === event.currentTarget || event.target.tagName === "BUTTON") {
+        const modalContainer = document.querySelector('#modalContainer');
+        if (modalContainer) {
+          modalContainer.innerHTML = '';
+        }
+      }
+    }
+  });
+</script>
