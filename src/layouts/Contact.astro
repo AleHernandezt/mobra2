@@ -1,42 +1,39 @@
 ---
-import Btn from "../components/Btn.astro";
-import Titulo from "../components/Titulo.astro";
+import Btn2 from "../components/Btn2.astro";
+import Input from "../components/Input.astro"; // Importa el nuevo componente
 ---
 
 <section
-  class="p-16 flex flex-col justify-start items-center relative"
+  class="h-screen p-16 flex flex-col justify-start items-center relative"
   id="Contact"
 >
-  <div class="bg-white rounded-lg p-4 flex flex-row justify-start items-center">
-    <div class="w-1/2 h-full flex flex-col justify-start items-center">
+  <div class="bg-white lg:w-auto lg:h-auto rounded-lg py-16 flex lg:flex-row flex-col justify-start items-center">
+    <div class="w-1/2 h-full flex flex-col justify-evenly items-center">
       <div class="flex flex-col w-[80%] justify-start pb-4">
         <h2 class="text-2xl text-yellow-500 font-bold uppercase">Contact Us</h2>
         <h3 class="text-sm pb-4 text-black">
           We'd love to hear from you! Whether you have a question about our
           services, need assistance, or want to book an appointment, our team is
-          ready to help
+          ready to help.
         </h3>
       </div>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12093.796269666458!2d-73.8771897!3d40.7301432!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25e679a91a6c1%3A0x701ee44b089d164d!2sJuniper%20Valley%20Park!5e0!3m2!1ses-419!2sve!4v1737298703083!5m2!1ses-419!2sve"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        class="w-[80%] h-full flex flex-col justify-start items-center rounded-lg" 
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
 
-      <form class="flex flex-col w-[80%] justify-center items-center pb-8">
-        <div class="flex flex-col w-full justify-center gap-8">
-          <input
-            type="text"
-            class="w-full p-4 mb-4 border border-gray-900 rounded-lg"
-            placeholder="Name"
-          />
-          <input
-            type="email"
-            class="w-full p-4 mb-4 border border-gray-900 rounded-lg"
-            placeholder="Email"
-          />
-          <input
-            type="tel"
-            class="w-full p-4 mb-4 border border-gray-900 rounded-lg"
-            placeholder="Phone"
-          />
+    <div class="w-1/2 h-full flex flex-col justify-start items-center">
+      <form class="flex flex-col w-[80%] h-full justify-evenly items-center">
+        <div class="flex flex-col w-full justify-center gap-4">
+          <Input type="text" placeholder="Name" />
+          <Input type="email" placeholder="Email" />
+          <Input type="tel" placeholder="Phone" />
           <select
-            class="w-full p-4 mb-4 border border-gray-900 rounded-lg text-gray-500 bg-white"
+            class="w-full p-2 mb-4 border border-gray-900 rounded-lg text-gray-500 bg-white"
           >
             <option value="">Select a Service</option>
             <option value="servicio1">Individuals</option>
@@ -44,18 +41,9 @@ import Titulo from "../components/Titulo.astro";
             <option value="servicio3">Big Companies</option>
           </select>
         </div>
-        <Btn>Send Message</Btn>
+        <Btn2>Send Message</Btn2>
       </form>
-    </div>
-
-    <div class="w-1/2 h-full">
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12093.796269666458!2d-73.8771897!3d40.7301432!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25e679a91a6c1%3A0x701ee44b089d164d!2sJuniper%20Valley%20Park!5e0!3m2!1ses-419!2sve!4v1737298703083!5m2!1ses-419!2sve"
-        style="border:0;"
-        allowfullscreen=""
-        loading="lazy"
-        class="h-96 mx-auto w-96"
-        referrerpolicy="no-referrer-when-downgrade"></iframe>
+      
     </div>
   </div>
 </section>

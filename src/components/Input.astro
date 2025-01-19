@@ -1,0 +1,10 @@
+---
+// src/components/Input.astro
+const { type, placeholder } = Astro.props;
+---
+
+<input
+    type={type}
+    class="w-full p-4 mb-4 border border-gray-900 rounded-lg"
+    placeholder={placeholder}
+/>
