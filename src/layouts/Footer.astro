@@ -33,6 +33,13 @@
 <!-- Contenedor del Modal -->
 <div id="modalContainer"></div>
 
+<!-- Estilo CSS para el botón de cierre -->
+<style>
+  .custom-close-button {
+    color: #F59E0B; /* Color amarillo personalizado */
+  }
+</style>
+
 <!-- Script para manejar el Modal -->
 <script>
   function closeModalInverse() {
@@ -47,8 +54,12 @@
     if (modalContainer) {
       modalContainer.innerHTML = `
         <div id="modalOverlay" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50" style="backdrop-filter: blur(5px);">
-          <div class="bg-[#131614] text-white p-8 rounded-lg shadow-lg relative w-1/2 max-w-1/4">
-            <button id="closeButton" class="absolute top-2 right-2 text-yellow-500">✖</button>
+          <div class="bg-[#131614] text-white p-8 rounded-lg shadow-lg relative w-1/2 max-w-1/2">
+            <button id="closeButton" class="absolute top-2 right-2" style="background: none; border: none;">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="#F59E0B">
+                <path d="M18 6L6 18M6 6l12 12" stroke="#F59E0B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
             <h2 class="text-2xl font-bold mb-4">${content}</h2>
             <p>${getContentForModal(content)}</p>
           </div>
@@ -68,7 +79,16 @@
     }
   }
 
-  function getContentForModal(linkText: string): string { switch (linkText) { case 'Disclaimer': return 'The information provided on this website is for general informational purposes only. All information on the site is provided in good faith, however, we make no representation or warranty of any kind, express or implied, regarding the accuracy, adequacy, validity, reliability, availability, or completeness of any information on the site.'; case 'Privacy Policy': return 'Your privacy is important to us. This privacy policy explains how we collect, use, and share your personal information. We are committed to protecting your personal data and ensuring it is handled in a safe and responsible manner.'; default: return 'Content not found.'; } }
+  function getContentForModal(linkText: string): string {
+    switch (linkText) {
+      case 'Disclaimer':
+        return 'This site is for informational purposes only. No guarantees about accuracy.';
+      case 'Privacy Policy':
+        return 'We value your privacy. Your data is protected and used responsibly.';
+      default:
+        return 'Content not found.';
+    }
+  }
 
   document.addEventListener("DOMContentLoaded", function() {
     const disclaimerLink = document.getElementById("disclaimerLink");
@@ -89,7 +109,6 @@
       });
     }
 
-    // Asegúrate de que contactUsLink funcione de manera similar si es necesario
     if (contactUsLink) {
       contactUsLink.addEventListener("click", function(event) {
         event.preventDefault();
