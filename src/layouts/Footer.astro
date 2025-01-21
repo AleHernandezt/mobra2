@@ -37,6 +37,39 @@
 
 <!-- Script para manejar el Modal -->
 <script>
+  function closeModalInverse() {
+    const modalContainer = document.querySelector('#modalContainer') as HTMLElement;
+    if (modalContainer) {
+      modalContainer.innerHTML = ''; // Vacía el contenido del contenedor del modal
+    }
+  }
+
+  function openModal() {
+    const modalContainer = document.querySelector('#modalContainer') as HTMLElement;
+    if (modalContainer) {
+      modalContainer.innerHTML = `
+        <div id="modalOverlay" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div class="bg-[#131614] text-white p-8 rounded-lg shadow-lg relative">
+            <button id="closeButton" class="absolute top-2 right-2 text-yellow-500">✖</button>
+            <h2 class="text-2xl font-bold mb-4">Disclaimer</h2>
+            <p>This is the disclaimer content.</p>
+          </div>
+        </div>
+      `;
+
+      const closeButton = document.getElementById('closeButton');
+      const modalOverlay = document.getElementById('modalOverlay');
+      if (closeButton && modalOverlay) {
+        closeButton.onclick = closeModalInverse;
+        modalOverlay.onclick = (event) => {
+          if (event.target === modalOverlay) {
+            closeModalInverse();
+          }
+        };
+      }
+    }
+  }
+
   document.addEventListener("DOMContentLoaded", function() {
     const disclaimerLink = document.getElementById("disclaimerLink");
 
@@ -45,30 +78,6 @@
         event.preventDefault();
         openModal();
       });
-    }
-
-    function openModal() {
-      const modalContainer = document.querySelector('#modalContainer');
-      if (modalContainer) {
-        modalContainer.innerHTML = `
-          <div class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50" onclick="closeModal(event)">
-            <div class="bg-[#131614] text-white p-8 rounded-lg shadow-lg relative" onclick="event.stopPropagation()">
-              <button class="absolute top-2 right-2 text-yellow-500" onclick="closeModal(event)">✖</button>
-              <h2 class="text-2xl font-bold mb-4">Disclaimer</h2>
-              <p>This is the disclaimer content.</p>
-            </div>
-          </div>
-        `;
-      }
-    }
-
-    function closeModal(event: { target: { tagName: string; }; currentTarget: any; }) {
-      if (event.target === event.currentTarget || event.target.tagName === "BUTTON") {
-        const modalContainer = document.querySelector('#modalContainer');
-        if (modalContainer) {
-          modalContainer.innerHTML = '';
-        }
-      }
     }
   });
 </script>
