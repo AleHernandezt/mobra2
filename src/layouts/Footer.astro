@@ -28,7 +28,7 @@
   <div class="w-full border-t-2 border-white"></div>
   <div class="flex flex-row justify-between w-full mt-4">
     <div class="flex flex-row mx-8 gap-4">
-      <a href="#" class="text-xl text-white mx-2 font-normal" id="contactUsLink"
+      <a href="#Contact" class="text-xl text-white mx-2 font-normal" id="contactUsLink"
         >Contact Us</a
       >
       <a
@@ -120,7 +120,6 @@
   document.addEventListener("DOMContentLoaded", function () {
     const disclaimerLink = document.getElementById("disclaimerLink");
     const privacyPolicyLink = document.getElementById("privacyPolicyLink");
-    const contactUsLink = document.getElementById("contactUsLink");
 
     if (disclaimerLink) {
       disclaimerLink.addEventListener("click", function (event) {
@@ -133,13 +132,6 @@
       privacyPolicyLink.addEventListener("click", function (event) {
         event.preventDefault();
         openModal(privacyPolicyLink.textContent ?? "Privacy Policy");
-      });
-    }
-
-    if (contactUsLink) {
-      contactUsLink.addEventListener("click", function (event) {
-        event.preventDefault();
-        openModal(contactUsLink.textContent ?? "Contact Us");
       });
     }
   });
