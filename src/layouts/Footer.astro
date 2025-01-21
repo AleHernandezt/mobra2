@@ -1,5 +1,3 @@
----
----
 <!-- HTML actualizado -->
 <footer class="p-16 flex flex-col justify-end items-center absolute mb-0 left-0 w-full">
   <div class="w-full border-t-2 border-white"></div>
@@ -34,6 +32,7 @@
 
 <!-- Contenedor del Modal -->
 <div id="modalContainer"></div>
+
 <!-- Script para manejar el Modal -->
 <script>
   function closeModalInverse() {
@@ -47,8 +46,8 @@
     const modalContainer = document.querySelector('#modalContainer') as HTMLElement;
     if (modalContainer) {
       modalContainer.innerHTML = `
-        <div id="modalOverlay" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div class="bg-[#131614] text-white p-8 rounded-lg shadow-lg relative">
+        <div id="modalOverlay" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50" style="backdrop-filter: blur(5px);">
+          <div class="bg-[#131614] text-white p-8 rounded-lg shadow-lg relative w-1/2 max-w-1/4">
             <button id="closeButton" class="absolute top-2 right-2 text-yellow-500">✖</button>
             <h2 class="text-2xl font-bold mb-4">${content}</h2>
             <p>${getContentForModal(content)}</p>
@@ -69,16 +68,7 @@
     }
   }
 
-  function getContentForModal(linkText: string): string {
-    switch (linkText) {
-      case 'Disclaimer':
-        return 'This is the disclaimer content.';
-      case 'Privacy Policy':
-        return 'This is the privacy policy content.';
-      default:
-        return 'Content not found.';
-    }
-  }
+  function getContentForModal(linkText: string): string { switch (linkText) { case 'Disclaimer': return 'The information provided on this website is for general informational purposes only. All information on the site is provided in good faith, however, we make no representation or warranty of any kind, express or implied, regarding the accuracy, adequacy, validity, reliability, availability, or completeness of any information on the site.'; case 'Privacy Policy': return 'Your privacy is important to us. This privacy policy explains how we collect, use, and share your personal information. We are committed to protecting your personal data and ensuring it is handled in a safe and responsible manner.'; default: return 'Content not found.'; } }
 
   document.addEventListener("DOMContentLoaded", function() {
     const disclaimerLink = document.getElementById("disclaimerLink");
