@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Header from '../layouts/Header.astro'
+import Header from '../layouts/Header.astro';
 import AboutUs from '../layouts/AboutUs.astro';
 import Testimonial from '../layouts/Testimonial.astro';
 import Services from '../layouts/Services.astro';
@@ -9,12 +9,12 @@ import Contact from '../layouts/Contact.astro';
 ---
 
 <Layout title="MOBRA">
-	<Header></Header>
-  <main class="w-[90%] mx-auto overflow-hidden max-w-screen-xl">
-    <AboutUs></AboutUs>
-    <Services></Services>
-    <Testimonial></Testimonial>
-    <Contact></Contact>
-    <Footer></Footer>
+  <Header />
+  <main class="container mx-auto px-4">
+    <AboutUs />
+    <Services />
+    <Testimonial />
+    <Contact />
+    <Footer />
   </main>
 </Layout>
