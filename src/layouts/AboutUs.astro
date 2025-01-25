@@ -3,16 +3,17 @@ import Titulo from "../components/Titulo.astro";
 ---
 
 <section
-  class="p-16 pt-20 flex flex-col justify-start items-center relative"
+  class="p-16 pt-20 flex flex-col justify-start items-center min-h-[400px]"
   id="About"
 >
   <Titulo
     title="About Us"
     subtitle="Revitalize your vehicle with our premier car wash and detailing service!"
   />
-  <div class="container mx-auto p-6 max-w-7xl relative pb-96">
-    <div class="flex flex-wrap justify-center gap-4 absolute" id="imgContainer">
-      <div class="w-2/5 h-80 rounded-lg overflow-hidden hover:scale-110 transition duration-300 ease-in-out">
+  <div class="container mx-auto p-6 max-w-7xl relative">
+    <div class="flex flex-col md:flex-row justify-between gap-6" id="imgContainer"> <!-- Aumentar el gap -->
+      <!-- Imagen grande en pantallas grandes -->
+      <div class="w-full md:w-1/2 h-80 rounded-lg overflow-hidden hover:scale-105 transition duration-300 ease-in-out ">
         <img
           src="src/assets/img1.JPG"
           alt="car detail"
@@ -20,38 +21,39 @@ import Titulo from "../components/Titulo.astro";
           id="img1"
         />
       </div>
-      <div class="flex flex-wrap justify-center gap-4">
-        <div class="w-4/6 h-36 relative rounded-lg overflow-hidden hover:scale-110 transition duration-300 ease-in-out">
+      <!-- Dos imágenes más pequeñas apiladas en pantallas grandes -->
+      <div class="flex flex-col w-full md:w-1/2 gap-4 justify-evenly"> <!-- Mantener el gap -->
+        <div class="h-32 rounded-lg overflow-hidden hover:scale-105 transition duration-300 ease-in-out"> <!-- Reducir la altura -->
           <img
             src="src/assets/img2.JPG"
             alt="car detail"
-            class="w-full h-full object-cover transition-transform duration-300 ease-in-out transform "
+            class="w-full h-full object-cover transition-transform duration-300 ease-in-out transform"
             id="img2"
           />
         </div>
-        <div class="w-4/6 h-36 relative rounded-lg overflow-hidden hover:scale-110 transition duration-300 ease-in-out">
+        <div class="h-32 rounded-lg overflow-hidden hover:scale-105 transition duration-300 ease-in-out"> <!-- Reducir la altura -->
           <img
             src="src/assets/img3.JPG"
             alt="car detail"
-            class="w-full h-full object-cover transition-transform duration-300 ease-in-out transform "
+            class="w-full h-full object-cover transition-transform duration-300 ease-in-out transform"
             id="img3"
           />
         </div>
       </div>
-      <div class="flex justify-center flex-grow">
-        <p
-          class="text-sm text-white mt-0 text-justify pt-8 opacity-100 transition-opacity duration-500 ease-in-out"
-          id="paragraph"
-        >
-          MOBRA as it is today, is an ambitious dream inspired by cars, passion,
-          and determination. Throughout its creation, two major states were in
-          mind for the rise of the company: New York and Florida. January ’24
-          was the pillar of creation for MOBRA, specifically in Miami. From that
-          point in time, the company has risen from its beginnings and will
-          continue to thrive through its ambition. MOBRA’s goal is to become the
-          best car detailing company in the US, eventually in the world.
-        </p>
-      </div>
+    </div>
+    <div class="flex justify-center flex-grow w-full mt-8">
+      <p
+        class="text-sm text-white mt-0 text-justify pt-8 opacity-100 transition-opacity duration-500 ease-in-out"
+        id="paragraph"
+      >
+        MOBRA as it is today, is an ambitious dream inspired by cars, passion,
+        and determination. Throughout its creation, two major states were in
+        mind for the rise of the company: New York and Florida. January ’24
+        was the pillar of creation for MOBRA, specifically in Miami. From that
+        point in time, the company has risen from its beginnings and will
+        continue to thrive through its ambition. MOBRA’s goal is to become the
+        best car detailing company in the US, eventually in the world.
+      </p>
     </div>
   </div>
 </section>
