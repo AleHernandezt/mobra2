@@ -1,7 +1,4 @@
-<!-- HTML actualizado -->
-<footer
-  class="p-16 flex flex-col justify-end items-center mb-0 left-0 w-full"
->
+<footer class="mb-0 left-0 p-16 pt-20 flex flex-col justify-start items-center ">
   <div class="w-full border-t-2 border-white"></div>
   <div class="flex flex-row justify-evenly items-center w-full my-4">
     <h2 class="text-5xl font-extrabold text-white flex items-center flex-col">
@@ -9,9 +6,7 @@
       <p class="text-lg text-white uppercase">ny | fl</p>
     </h2>
     <div class="flex flex-col items-center justify-center mb-0">
-      <a class="text-lg text-white" href="mailto:mobradetails@gmail.com"
-        >mobradetails@gmail.com</a
-      >
+      <a class="text-lg text-white" href="mailto:mobradetails@gmail.com">mobradetails@gmail.com</a>
       <div class="flex flex-row mt-2">
         <a
           href="https://www.instagram.com/mobradetailz?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
@@ -19,7 +14,7 @@
           target="_blank"
           rel="noopener noreferrer"
         >
-          <!-- Svg -->
+          <!-- Aquí puedes agregar el SVG o icono de Instagram si lo deseas -->
         </a>
       </div>
       <p>Juniper Valley Park</p>
@@ -28,111 +23,13 @@
   <div class="w-full border-t-2 border-white"></div>
   <div class="flex flex-row justify-between w-full mt-4">
     <div class="flex flex-row mx-8 gap-4">
-      <a href="#Contact" class="text-xl text-white mx-2 font-normal" id="contactUsLink"
-        >Contact Us</a
-      >
-      <a
-        href="#"
-        class="text-xl text-white mx-2 font-normal"
-        id="privacyPolicyLink">Privacy Policy</a
-      >
-      <a
-        href="#"
-        class="text-xl text-white mx-2 font-normal"
-        id="disclaimerLink">Disclaimer</a
-      >
+      <a href="#Contact" class="text-xl text-white mx-2 font-normal" id="contactUsLink">Contact Us</a>
+      <a href="#" class="text-xl text-white mx-2 font-normal" id="privacyPolicyLink">Privacy Policy</a>
+      <a href="#" class="text-xl text-white mx-2 font-normal" id="disclaimerLink">Disclaimer</a>
     </div>
     <div class="flex flex-col">
-      <p class="text-white text-right capitalize text-xl font-normal">
-        Copyright &copy; 2024
-      </p>
-      <p class="text-white text-right uppercase text-xl font-normal">
-        MOBRA LLC.
-      </p>
+      <p class="text-white text-right capitalize text-xl font-normal">Copyright &copy; 2024</p>
+      <p class="text-white text-right uppercase text-xl font-normal">MOBRA LLC.</p>
     </div>
   </div>
 </footer>
-
-<!-- Contenedor del Modal -->
-<div id="modalContainer"></div>
-
-<!-- Estilo CSS para el botón de cierre -->
-<style>
-  .custom-close-button {
-    color: #f59e0b; /* Color amarillo personalizado */
-  }
-</style>
-
-<!-- Script para manejar el Modal -->
-<script>
-  function closeModalInverse() {
-    const modalContainer = document.querySelector(
-      "#modalContainer"
-    ) as HTMLElement;
-    if (modalContainer) {
-      modalContainer.innerHTML = ""; // Vacía el contenido del contenedor del modal
-    }
-  }
-
-  function openModal(content: string) {
-    const modalContainer = document.querySelector(
-      "#modalContainer"
-    ) as HTMLElement;
-    if (modalContainer) {
-      modalContainer.innerHTML = `
-        <div id="modalOverlay" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50" style="backdrop-filter: blur(5px);">
-          <div class="bg-[#131614] text-white p-8 rounded-lg shadow-lg relative w-1/2 max-w-1/2">
-            <button id="closeButton" class="absolute top-2 right-2" style="background: none; border: none;">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="#F59E0B">
-                <path d="M18 6L6 18M6 6l12 12" stroke="#F59E0B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </button>
-            <h2 class="text-2xl font-bold mb-4">${content}</h2>
-            <p>${getContentForModal(content)}</p>
-          </div>
-        </div>
-      `;
-
-      const closeButton = document.getElementById("closeButton");
-      const modalOverlay = document.getElementById("modalOverlay");
-      if (closeButton && modalOverlay) {
-        closeButton.onclick = closeModalInverse;
-        modalOverlay.onclick = (event) => {
-          if (event.target === modalOverlay) {
-            closeModalInverse();
-          }
-        };
-      }
-    }
-  }
-
-  function getContentForModal(linkText: string): string {
-    switch (linkText) {
-      case "Disclaimer":
-        return "The information provided on this website is for general informational purposes only. All information on the site is provided in good faith, however, we make no representation or warranty of any kind, express or implied, regarding the accuracy, adequacy, validity, reliability, availability, or completeness of any information on the site.";
-      case "Privacy Policy":
-        return "Your privacy is important to us. This privacy policy explains how we collect, use, and share your personal information. We are committed to protecting your personal data and ensuring it is handled in a safe and responsible manner.";
-      default:
-        return "Content not found.";
-    }
-  }
-
-  document.addEventListener("DOMContentLoaded", function () {
-    const disclaimerLink = document.getElementById("disclaimerLink");
-    const privacyPolicyLink = document.getElementById("privacyPolicyLink");
-
-    if (disclaimerLink) {
-      disclaimerLink.addEventListener("click", function (event) {
-        event.preventDefault();
-        openModal(disclaimerLink.textContent ?? "Disclaimer");
-      });
-    }
-
-    if (privacyPolicyLink) {
-      privacyPolicyLink.addEventListener("click", function (event) {
-        event.preventDefault();
-        openModal(privacyPolicyLink.textContent ?? "Privacy Policy");
-      });
-    }
-  });
-</script>
