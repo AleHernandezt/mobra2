@@ -1,10 +1,9 @@
 ---
-import Btn from "../components/Btn.astro";
-import Nav from "../components/Nav.astro";
+import Nav2 from "../components/Nav2.astro";
 ---
 
-<Nav />
-<header class="px-4 md:px-20 h-screen flex flex-col justify-end items-start relative pb-14">
+<Nav2></Nav2>
+<header class="relative h-screen flex flex-col justify-end items-start pb-14 overflow-hidden">
   <video
     class="absolute top-0 left-0 w-full h-full object-cover"
     autoplay
@@ -12,10 +11,9 @@ import Nav from "../components/Nav.astro";
     muted
     style="filter: brightness(0.8) saturate(0.8);"
   >
-    <source src="src/assets/vid1.MP4" type="video/MP4" />
+    <source src="src/assets/vid1.MP4" type="video/mp4" />
   </video>
-  <div class="z-10"></div>
-  <div class="flex flex-col w-full md:w-1/2 z-10 mt-auto gap-4 md:gap-6">
+  <div class="flex flex-col w-full md:w-1/2 z-10 mt-auto gap-4 md:gap-6 px-4 md:px-20">
     <h1 class="text-3xl md:text-4xl uppercase">Car Detailing</h1>
     <p class="mb-4 text-sm md:text-base">
       A thorough cleaning, restoration, and finishing process aimed at enhancing
