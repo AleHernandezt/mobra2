@@ -4,14 +4,14 @@ import Input from "../components/Input.astro";
 ---
 
 <section
-  class="h-screen p-16 flex flex-col justify-start items-center mt-0"
+  class="h-screen p-0 sm:py-16 lg:p-16 flex flex-col justify-start items-center mt-0"
   id="Contact"
 >
   <div
-    class="bg-white lg:w-auto lg:h-auto rounded-lg py-16 flex lg:flex-row flex-col justify-start items-center"
+    class="bg-white w-full lg:w-auto lg:h-auto rounded-lg py-8 lg:py-16 flex flex-col lg:flex-row justify-start items-center"
   >
-    <div class="w-1/2 h-full flex flex-col justify-evenly items-center">
-      <div class="flex flex-col w-[80%] justify-start pb-4">
+    <div class="w-full lg:w-1/2 flex flex-col justify-evenly items-center">
+      <div class="flex flex-col w-full lg:w-[80%] justify-start px-4 pb-4">
         <h2 class="text-2xl text-yellow-500 font-bold uppercase">Contact Us</h2>
         <h3 class="text-sm pb-4 text-black">
           We'd love to hear from you! Whether you have a question about our
@@ -24,30 +24,34 @@ import Input from "../components/Input.astro";
         style="border:0;"
         allowfullscreen=""
         loading="lazy"
-        class="w-[80%] h-full flex flex-col justify-start items-center rounded-lg"
+        class="w-full lg:w-[70%] h-64 lg:h-96 flex flex-col justify-start items-center rounded-lg px-4"
         referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
 
-    <div class="w-1/2 h-full flex flex-col justify-start items-center">
-      <form class="flex flex-col w-[80%] h-full justify-evenly items-center">
-        <div class="flex flex-col w-full justify-center gap-4">
-          <Input type="text" placeholder="Name" />
-          <Input type="email" placeholder="Email" />
-          <Input type="tel" placeholder="Phone" />
-          <textarea class="border border-black resize-none p-2 text-gray-700 rounded-lg">
-            Hello, can I get an individual service
-          </textarea>
-          <select
-            class="w-full p-2 mb-4 border border-gray-900 rounded-lg text-gray-500 bg-white"
-          >
-            <option value="">Select a Service</option>
-            <option value="servicio1">Individuals</option>
-            <option value="servicio2">Startups</option>
-            <option value="servicio3">Big Companies</option>
-          </select>
-        </div>
+    <div class="w-full lg:w-1/2 flex flex-col justify-start items-center">
+      <form
+        class="flex flex-col w-full lg:w-[80%] h-full justify-evenly items-center px-4"
+      >
+        <div class="flex flex-col w-full justify-center gap-x-4"></div>
+        <Input type="text" placeholder="Name" class="" />
+        <Input type="email" placeholder="Email" class="" />
+        <Input type="tel" placeholder="Phone" class="" />
+        <textarea
+          class="border border-black resize-none text-gray-700 rounded-lg lg:h-full h-24 text-sm overflow-hidden p-2 mb-4"
+        >Hello, can I get an individual service
+        </textarea>
+    
+        <select
+          class="w-full p-2 mb-4 border border-gray-900 rounded-lg text-gray-500 bg-white"
+        >
+          <option value="">Select a Service</option>
+          <option value="servicio1">Individuals</option>
+          <option value="servicio2">Startups</option>
+          <option value="servicio3">Big Companies</option>
+        </select>
         <Btn2>Send Message</Btn2>
       </form>
     </div>
+    
   </div>
 </section>
