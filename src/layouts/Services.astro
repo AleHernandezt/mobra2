@@ -6,7 +6,7 @@ import Titulo from "../components/Titulo.astro";
 <section class="p-16 pt-20 flex flex-col justify-start items-center" id="Services">
   <Titulo title="Services & Pricing" subtitle="" />
 
-  <div class="flex gap-10 group">
+  <div class="flex flex-col gap-y-12 group w-full lg:flex-row lg:gap-10 lg:justify-center">
     <Card
       title="For individuals"
       subtitle="Basic"
@@ -20,9 +20,8 @@ import Titulo from "../components/Titulo.astro";
       ]}
       action="Get Started"
       image="src/assets/img4.jpg"
-      className="group-hover:blur-sm hover:!blur-none"
+      className="group-hover:blur-sm hover:!blur-none w-full lg:w-70"
       id="card1"
-      width="w-80"
       showPopularButton={false}
     />
 
@@ -39,11 +38,9 @@ import Titulo from "../components/Titulo.astro";
       ]}
       action="Get Started"
       image="src/assets/img5.jpg"
-      className="bg-yellow-500 group-hover:blur-sm hover:!blur-none group-hover:bg-white hover:!bg-yellow-500"
+      className="bg-yellow-500 group-hover:blur-sm hover:!blur-none group-hover:bg-white hover:!bg-yellow-500 w-full lg:w-70"
       id="card2"
       showPopularButton={true} 
-      width="w-86"
-
     />
 
     <Card
@@ -60,9 +57,8 @@ import Titulo from "../components/Titulo.astro";
       ]}
       action="Get Started"
       image="src/assets/img6.jpg"
-      className="group-hover:blur-sm hover:!blur-none"
+      className="group-hover:blur-sm hover:!blur-none w-full lg:w-70"
       id="card3"
-      width="w-80"
       showPopularButton={false} 
     />
   </div>
