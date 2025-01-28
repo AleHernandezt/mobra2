@@ -3,14 +3,13 @@ import Card from "../components/Card.astro";
 import Titulo from "../components/Titulo.astro";
 ---
 
-<section class="p-16 pt-20 flex flex-col justify-start items-center" id="Services">
+<section class="py-16 px-2 pt-20 flex flex-col justify-start items-center" id="Services">
   <Titulo title="Services & Pricing" subtitle="" />
 
   <div class="flex flex-col gap-y-12 group w-full lg:flex-row lg:gap-10 lg:justify-center">
     <Card
       title="For individuals"
       subtitle="Basic"
-      description="MOBRA BASIC PACKAGE"
       actionTitle="$80"
       includes={[
         "Exterior wash",
@@ -28,7 +27,6 @@ import Titulo from "../components/Titulo.astro";
     <Card
       title="For Startups"
       subtitle="Pro"
-      description="MOBRA PRO PACKAGE"
       actionTitle="$150"
       includes={[
         "MOBRA BASIC PACKAGE",
@@ -46,7 +44,6 @@ import Titulo from "../components/Titulo.astro";
     <Card
       title="For Big Companies"
       subtitle="Enterprise"
-      description="MOBRA PREMIUM PACKAGE"
       actionTitle="$300"
       includes={[
         "MOBRA PRO PACKAGE",

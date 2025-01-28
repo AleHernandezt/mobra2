@@ -6,25 +6,23 @@ interface Props {
   image: string;
   title: string;
   subtitle: string;
-  description: string;
   actionTitle: string;
   includes: string[];
   action: string;
-  showPopularButton?: boolean; // Nueva propiedad para mostrar el botón
-  className?: string; // Añadido para clases adicionales
-  id?: string; // Añadido para ID
-  width?: string; // Añadido para ancho
+  showPopularButton?: boolean;
+  className?: string;
+  id?: string;
+  width?: string;
 }
 
 const {
   image,
   title,
   subtitle,
-  description,
   actionTitle,
   includes,
   action,
-  showPopularButton = false, // Valor por defecto es false
+  showPopularButton = false,
   className = "",
   id,
   width = "w-70",
@@ -35,10 +33,10 @@ const {
   <div class="flex flex-col items-center lg:flex-row p-2 transition duration-500 ease-in-out justify-evenly">
     <img src={Astro.props.image} alt="Imagen" class="w-10 h-10 object-cover rounded mb-4 lg:mb-0" />
     <div class="text-center lg:text-left lg:ml-2">
-      <h3 class="text-lg font-bold text-black">{title}</h3>
-      <h4 class="text-sm text-black">{subtitle}</h4>
+      <h3 class="text-xl lg:text-lg font-bold text-black">{title}</h3>
+      <h4 class="text-lg lg:text-sm text-black">{subtitle}</h4>
     </div>
-    {showPopularButton && ( // Condicional para mostrar el botón
+    {showPopularButton && (
       <a
         href="#"
         class="bg-[#131614] rounded-md py-1 px-2 text-white hover:bg-white hover:text-yellow-500 transition duration-300 ease-in-out lg:ml-2 mt-4 lg:mt-0"
@@ -47,23 +45,20 @@ const {
       </a>
     )}
   </div>
-  <p class="text-gray-500 p-2 py-4 transition duration-500 ease-in-out text-xs text-center lg:text-left">
-    {description}
-  </p>
-  <h3 class="text-4xl font-bold p-2 py-4 text-black transition duration-500 ease-in-out text-center lg:text-left">
+  <h3 class="text-5xl lg:text-4xl font-bold p-2 py-4 text-black transition duration-500 ease-in-out text-center lg:text-left">
     {actionTitle}
   </h3>
-  <h4 class="p-2 text-black transition duration-500 ease-in-out text-center lg:text-left">
+  <h4 class="p-2 text-lg text-black transition duration-500 ease-in-out text-center lg:text-left">
     What's included
   </h4>
-  <div class="flex flex-col p-2 transition duration-500 ease-in-out py-10 items-center lg:items-start">
+  <div class="flex flex-col p-2 py-6 lg:py-10 transition duration-500 ease-in-out items-center lg:items-start">
     {
       includes.map((include) => (
         <div class="flex items-center">
           <svg class="w-6 h-6 text-black rounded mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M5 13l4 4L19 7" />
           </svg>
-          <p class="text-sm text-black">{include}</p>
+          <p class="text-base lg:text-sm text-black">{include}</p>
         </div>
       ))
     }
