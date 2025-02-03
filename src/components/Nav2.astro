@@ -15,10 +15,10 @@
       <!-- Menú de navegación -->
       <nav class="hidden peer-checked:block peer-checked:animate-fadeIn peer-unchecked:animate-fadeOut py-4 sm:py-0">
           <ul class="flex flex-col sm:flex-row sm:gap-x-8 gap-y-4 px-8">
-              <li class="hover:scale-110 transition duration-300 ease-in-out"><a href="#About">About</a></li>
-              <li class="hover:scale-110 transition duration-300 ease-in-out"><a href="#Services">Services</a></li>
-              <li class="hover:scale-110 transition duration-300 ease-in-out"><a href="#Testymonial">Testymonials</a></li>
-              <li class="hover:scale-110 transition duration-300 ease-in-out"><a href="#Contact">Contact</a></li>
+              <li class="hover:scale-110 transition duration-300 ease-in-out"><a href="#About" onclick="hideMenu()">About</a></li>
+              <li class="hover:scale-110 transition duration-300 ease-in-out"><a href="#Services" onclick="hideMenu()">Services</a></li>
+              <li class="hover:scale-110 transition duration-300 ease-in-out"><a href="#Testymonial" onclick="hideMenu()">Testymonials</a></li>
+              <li class="hover:scale-110 transition duration-300 ease-in-out"><a href="#Contact" onclick="hideMenu()">Contact</a></li>
           </ul>
       </nav>
   </div>
@@ -42,6 +42,23 @@ function toggleMenu() {
         menu.classList.add('hidden');
       }, { once: true });
     }
+  }
+}
+
+function hideMenu() {
+  const checkbox = document.getElementById('navbar-open') as HTMLInputElement;
+  const menu = document.querySelector('nav');
+  
+  if (menu) {
+    menu.classList.remove('animate-fadeIn');
+    menu.classList.add('animate-fadeOut');
+    menu.addEventListener('animationend', () => {
+      menu.classList.add('hidden');
+    }, { once: true });
+  }
+
+  if (checkbox) {
+    checkbox.checked = false;
   }
 }
 

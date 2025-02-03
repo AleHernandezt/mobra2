@@ -45,18 +45,27 @@ import Input from "../components/Input.astro";
           placeholder="Here at MOBRA, we value your experience, but most importantly, your car. Tell us about your car, what would you like us to provide and any other comments. We will take a detailed look at it, and proceed with the refreshing of your vehicle. "
         ></textarea>
         <div class="flex flex-col lg:flex-row w-full justify-between gap-x-2 mb-4">
-          <input
-            type="date"
-            class="w-full p-2 lg:p-0 mb-4 lg:mb-0 border border-gray-900 rounded-lg text-gray-500 bg-white h-10 lg:h-8 text-sm"
-          />
-          <select
-            class="w-full p-2 lg:p-0 border border-gray-900 rounded-lg text-gray-500 bg-white h-10 lg:h-8 text-sm"
-          >
-            <option value="">Select a Service</option>
-            <option value="servicio1">Individuals</option>
-            <option value="servicio2">Startups</option>
-            <option value="servicio3">Big Companies</option>
-          </select>
+          <div class="relative w-full mb-4 lg:mb-0">
+            <input
+              type="date"
+              class="w-full p-2 lg:p-4 border lg:py-0 border-gray-900 rounded-lg text-gray-500 bg-white h-10 lg:h-8 text-sm"
+            />
+          </div>
+          <div class="relative w-full">
+            <select
+              class="w-full p-2 lg:px-4 lg:py-0 border border-gray-900 rounded-lg text-gray-500 bg-white h-10 lg:h-8 text-sm appearance-none pr-8"
+            >
+              <option value="">Select a Service</option>
+              <option value="servicio1">Mobra Basic Package</option>
+              <option value="servicio2">Mobra Pro Package</option>
+              <option value="servicio3">Mobra Premium Package</option>
+            </select>
+            <div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
+              <svg class="w-4 h-4 fill-current text-gray-500" viewBox="0 0 20 20">
+                <path d="M7 10l5 5 5-5H7z"></path>
+              </svg>
+            </div>
+          </div>
         </div>
         <Btn2></Btn2>
       </form>
