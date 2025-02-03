@@ -13,10 +13,8 @@
       </label>
       
       <!-- Menú de navegación -->
-      <nav class="peer-checked:hidden peer-checked:block animate-slideInRight py-4 sm:py-0">
-
-        <ul class="flex flex-col sm:flex-row sm:gap-x-8 gap-y-4 px-8">
-
+      <nav class="hidden peer-checked:block peer-checked:animate-fadeIn peer-unchecked:animate-fadeOut py-4 sm:py-0">
+          <ul class="flex flex-col sm:flex-row sm:gap-x-8 gap-y-4 px-8">
               <li class="hover:scale-110 transition duration-300 ease-in-out"><a href="#About">About</a></li>
               <li class="hover:scale-110 transition duration-300 ease-in-out"><a href="#Services">Services</a></li>
               <li class="hover:scale-110 transition duration-300 ease-in-out"><a href="#Testymonial">Testymonials</a></li>
@@ -29,22 +27,34 @@
 function toggleMenu() {
   const checkbox = document.getElementById('navbar-open') as HTMLInputElement;
   const menu = document.querySelector('nav');
-  
+
   if (checkbox && checkbox.checked) {
     if (menu) {
-      menu.classList.remove('animate-slideLeft');
-      menu.classList.add('animate-slideRight');
-    if (menu) {
-      menu.classList.remove('animate-slideRight');
-      menu.classList.add('animate-slideLeft');
+      menu.classList.remove('hidden');
+      menu.classList.remove('animate-fadeOut');
+      menu.classList.add('animate-fadeIn');
     }
-    menu.classList.remove('animate-slideRight');
-    menu.classList.add('animate-slideLeft');
+  } else {
+    if (menu) {
+      menu.classList.remove('animate-fadeIn');
+      menu.classList.add('animate-fadeOut');
+      menu.addEventListener('animationend', () => {
+        menu.classList.add('hidden');
+      }, { once: true });
+    }
   }
 }
-}
+
 const navbarOpen = document.getElementById('navbar-open');
 if (navbarOpen) {
   navbarOpen.addEventListener('change', toggleMenu);
 }
+
+// Ocultar menú al cargar la página
+document.addEventListener('DOMContentLoaded', () => {
+  const menu = document.querySelector('nav');
+  if (menu) {
+    menu.classList.add('hidden');
+  }
+});
 </script>
