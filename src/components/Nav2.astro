@@ -1,33 +1,50 @@
 <div class="fixed top-0 left-0 w-full bg-gradient-to-b from-[#030303] to-[#13161444] z-20 shadow mb-2 px-4 outline-none">
-    <div class="relative mx-auto flex flex-col sm:flex-row max-w-screen-lg py-4 sm:items-center sm:justify-between">
-        <a href="#" class="text-3xl flex items-center font-bold text-white outline-none">
-            <h1>MOBRA</h1>
-        </a>
-        
-        <!-- Checkbox para el menú hamburguesa -->
-        <input class="peer hidden" type="checkbox" id="navbar-open">
-        <label class="absolute right-0 mt-2 cursor-pointer text-xl" for="navbar-open">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M4 6h16M4 12h16M4 18h16" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-            </svg>
-        </label>
-        
-        <!-- Menú de navegación -->
-        <nav class="peer-checked:hidden py-4 sm:py-0">
-            <ul class="flex flex-col sm:flex-row sm:gap-x-8 gap-y-4 px-8">
-                <li class="hover:scale-110 transition duration-300 ease-in-out"><a href="#About">About</a></li>
-                <li class="hover:scale-110 transition duration-300 ease-in-out"><a href="#Services">Services</a></li>
-                <li class="hover:scale-110 transition duration-300 ease-in-out"><a href="#Testymonial">Testymonials</a></li>
-                <li class="hover:scale-110 transition duration-300 ease-in-out"><a href="#Contact">Contact</a></li>
-            </ul>
-        </nav>
-    </div>
+  <div class="relative mx-auto flex flex-col sm:flex-row max-w-screen-lg py-4 sm:items-center sm:justify-between">
+      <a href="#" class="text-3xl flex items-center font-bold text-white outline-none">
+          <h1>MOBRA</h1>
+      </a>
+      
+      <!-- Checkbox para el menú hamburguesa -->
+      <input class="peer hidden" type="checkbox" id="navbar-open" />
+      <label class="absolute right-0 mt-2 cursor-pointer text-xl" for="navbar-open">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 6h16M4 12h16M4 18h16" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+      </label>
+      
+      <!-- Menú de navegación -->
+      <nav class="peer-checked:hidden peer-checked:block animate-slideInRight py-4 sm:py-0">
+
+        <ul class="flex flex-col sm:flex-row sm:gap-x-8 gap-y-4 px-8">
+
+              <li class="hover:scale-110 transition duration-300 ease-in-out"><a href="#About">About</a></li>
+              <li class="hover:scale-110 transition duration-300 ease-in-out"><a href="#Services">Services</a></li>
+              <li class="hover:scale-110 transition duration-300 ease-in-out"><a href="#Testymonial">Testymonials</a></li>
+              <li class="hover:scale-110 transition duration-300 ease-in-out"><a href="#Contact">Contact</a></li>
+          </ul>
+      </nav>
+  </div>
 </div>
 <script>
-    function toggleMenu() {
-    const checkbox: HTMLInputElement | null = document.getElementById('navbar-open') as HTMLInputElement;
-    if (checkbox) {
-        checkbox.checked = !checkbox.checked;
+function toggleMenu() {
+  const checkbox = document.getElementById('navbar-open') as HTMLInputElement;
+  const menu = document.querySelector('nav');
+  
+  if (checkbox && checkbox.checked) {
+    if (menu) {
+      menu.classList.remove('animate-slideLeft');
+      menu.classList.add('animate-slideRight');
+    if (menu) {
+      menu.classList.remove('animate-slideRight');
+      menu.classList.add('animate-slideLeft');
     }
+    menu.classList.remove('animate-slideRight');
+    menu.classList.add('animate-slideLeft');
+  }
+}
+}
+const navbarOpen = document.getElementById('navbar-open');
+if (navbarOpen) {
+  navbarOpen.addEventListener('change', toggleMenu);
 }
 </script>
