@@ -11,9 +11,10 @@ import Titulo from "../components/Titulo.astro";
     subtitle="Revitalize your vehicle with our premier car wash and detailing service!"
   />
   <div class="container mx-auto p-6 max-w-7xl relative">
-    <div class="flex flex-col md:flex-row justify-between gap-6" id="imgContainer">
-      <!-- Imagen grande en pantallas grandes -->
-      <div class="w-full md:w-1/2 h-80 md:h-80 rounded-lg overflow-hidden transition-all duration-300 ease-in-out transform hover:scale-105">
+    <!-- Contenedor de imágenes -->
+    <div class="flex md:flex-row flex-col gap-6" id="imgContainer">
+      <!-- Imagen 1 (ocupa el ancho completo en móvil y desktop) -->
+      <div class="w-full h-48 md:h-64 rounded-lg overflow-hidden transition-all duration-300 ease-in-out transform hover:scale-105 my-auto">
         <img
           src="./img1.webp"
           alt="car detail"
@@ -21,9 +22,9 @@ import Titulo from "../components/Titulo.astro";
           id="img1"
         />
       </div>
-      <!-- Dos imágenes más pequeñas apiladas en pantallas grandes -->
-      <div class="flex flex-col w-full md:w-1/2 gap-4 justify-evenly">
-        <div class="w-full h-80 md:h-32 rounded-lg overflow-hidden transition-all duration-300 ease-in-out transform hover:scale-105">
+      <!-- Contenedor para Imagen 2 y Imagen 3 (en móvil se colocan una al lado de la otra) -->
+      <div class="flex md:flex-col flex-row w-full gap-4">
+        <div class="w-full h-48 md:h-32 rounded-lg overflow-hidden transition-all duration-300 ease-in-out transform hover:scale-105">
           <img
             src="./img2.webp"
             alt="car detail"
@@ -31,7 +32,7 @@ import Titulo from "../components/Titulo.astro";
             id="img2"
           />
         </div>
-        <div class="w-full h-80 md:h-32 rounded-lg overflow-hidden transition-all duration-300 ease-in-out transform hover:scale-105">
+        <div class="w-full h-48 md:h-32 rounded-lg overflow-hidden transition-all duration-300 ease-in-out transform hover:scale-105">
           <img
             src="./img3.webp"
             alt="car detail"
@@ -41,6 +42,8 @@ import Titulo from "../components/Titulo.astro";
         </div>
       </div>
     </div>
+
+    <!-- Texto debajo de las imágenes -->
     <div class="flex justify-center w-full mt-8">
       <p
         class="text-sm text-white text-justify pt-8 transition-opacity duration-500 ease-in-out"
@@ -62,11 +65,17 @@ import Titulo from "../components/Titulo.astro";
   const imgContainer = document.querySelector("#imgContainer");
   const images = imgContainer.querySelectorAll("img");
   const paragraph = document.querySelector("#paragraph");
+  const dynamicTitle = document.querySelector("#dynamicTitle");
 
   images.forEach((img, index) => {
     img.addEventListener("mouseover", () => {
+      // Oculta el título y el párrafo con animación
+      dynamicTitle.style.opacity = "0";
       paragraph.style.opacity = "0";
+
       setTimeout(() => {
+        // Cambia el contenido del título y el párrafo
+        dynamicTitle.textContent = "What We Do";
         switch (index) {
           case 0:
             paragraph.textContent =
@@ -81,17 +90,28 @@ import Titulo from "../components/Titulo.astro";
               "Our services are designed to help your vehicle last longer, both inside and out. Weather changes throughout the seasons—such as snow, rain, and high humidity from hot weather—can cause wear and tear on your car’s exterior and undercarriage. These elements can significantly impact your vehicle’s quality and longevity over time. That’s why one of our primary goals is to ensure your car is preserved in the best possible condition year-round. ";
             break;
         }
+
+        // Muestra el título y el párrafo con animación
+        dynamicTitle.style.opacity = "1";
         paragraph.style.opacity = "1";
-      }, 500);
+      }, 500); // Duración de la transición
     });
 
     img.addEventListener("mouseout", () => {
+      // Oculta el título y el párrafo con animación
+      dynamicTitle.style.opacity = "0";
       paragraph.style.opacity = "0";
+
       setTimeout(() => {
+        // Restaura el contenido original
+        dynamicTitle.textContent = "About Us";
         paragraph.textContent =
           "MOBRA as it is today, is an ambitious dream inspired by cars, passion, and determination. Throughout its creation, two major states were in mind for the rise of the company: New York and Florida. January ’24 was the pillar of creation for MOBRA, specifically in Miami. From that point in time, the company has risen from its beginnings and will continue to thrive through its ambition. MOBRA’s goal is to become the best car detailing company in the US, eventually in the world.";
+
+        // Muestra el título y el párrafo con animación
+        dynamicTitle.style.opacity = "1";
         paragraph.style.opacity = "1";
-      }, 500);
+      }, 500); // Duración de la transición
     });
   });
 </script>
